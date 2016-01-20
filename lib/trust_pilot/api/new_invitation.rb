@@ -6,7 +6,7 @@ module TrustPilot
 
     include HTTParty
 
-    mattr_accessor :business_user_id, 
+    mattr_accessor :business_user_id,
       :template_id,
       :locale,
       :sender_email,
@@ -16,7 +16,7 @@ module TrustPilot
 
     base_uri "https://invitations-api.trustpilot.com/v1/private/business-units/"
 
-    def self.call(recipient_email: "", recipient_name: "", tags: [], reference_id: "", preferred_send_time: "")
+    def self.call(recipient_email, recipient_name, tags, reference_id, preferred_send_time)
       check_default
       parse_response do_call(recipient_email, recipient_name, tags, reference_id, preferred_send_time)
     end
